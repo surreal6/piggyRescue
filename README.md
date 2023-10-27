@@ -6,6 +6,8 @@
 
 It was made with Godot 4.1 stable (final version tested in 4.1.2) and uses version 4.1 of Godot XR Tools plugin.
 
+![https://vimeo.com/874560332](https://vimeo.com/874560332)
+
 ## Can I just play the game?
 
 The game is available for free in SideQuest 🎉🐖🐖⛑️🐷🐖 [https://sidequestvr.com/app/19654/piggy-rescue](https://sidequestvr.com/app/19654/piggy-rescue)  or directly in Itch.io [https://asturnazari.itch.io/piggy-rescue](https://asturnazari.itch.io/piggy-rescue)
