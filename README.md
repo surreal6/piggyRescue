@@ -6,7 +6,7 @@
 
 It was made with Godot 4.1 stable (final version tested in 4.1.2) and uses version 4.1 of Godot XR Tools plugin.
 
-![https://vimeo.com/874560332](https://vimeo.com/874560332)
+[https://vimeo.com/874560332](https://vimeo.com/874560332)
 
 ## Can I just play the game?
 
