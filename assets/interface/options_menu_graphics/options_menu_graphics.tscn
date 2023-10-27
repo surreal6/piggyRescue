@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://r2v4jvsqr2ti"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_t33g8"]
+[ext_resource type="Script" path="res://assets/interface/options_menu_graphics/options_menu_graphics.gd" id="2_1pb8w"]
+[ext_resource type="StyleBox" uid="uid://csr3di7qg1vl2" path="res://assets/interface/close_button_theme.tres" id="3_a3rhm"]
+[ext_resource type="FontFile" uid="uid://bitog3rvmdept" path="res://fonts/Roboto-Medium.ttf" id="3_cgrn6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2b2dp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tk1u"]
+bg_color = Color(0.427832, 0.430249, 0.4375, 0.501961)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="optionsMenuGraphics" type="Panel"]
+custom_minimum_size = Vector2(600, 600)
+anchors_preset = -1
+anchor_right = 0.328
+anchor_bottom = 0.556
+offset_right = 0.959961
+offset_bottom = -0.47998
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_t33g8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2b2dp")
+script = ExtResource("2_1pb8w")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 430)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tk1u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -172.5
+offset_right = 155.0
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ShowDebugInfo" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Show Debug"
+
+[node name="fxaaToggle" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "FXAA"
+
+[node name="resolutionToggle" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Force resolution"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="shadowsToggle" type="CheckButton" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Quality
+"
+
+[node name="shadowsWarning" type="Label" parent="Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.686275, 0, 1)
+theme_override_fonts/font = ExtResource("3_cgrn6")
+theme_override_font_sizes/font_size = 17
+text = "Bad performance on standalone devices
+watch your sickness!"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+
+[node name="goBack" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Go Back"
+
+[node name="CloseButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 369.64
+offset_top = -30.0
+offset_right = 429.64
+offset_bottom = 30.0
+theme_override_styles/normal = ExtResource("3_a3rhm")
+theme_override_styles/hover = ExtResource("3_a3rhm")
+theme_override_styles/pressed = ExtResource("3_a3rhm")
+theme_override_styles/disabled = ExtResource("3_a3rhm")
+theme_override_styles/focus = ExtResource("3_a3rhm")
+text = "X"
+
+[connection signal="toggled" from="Panel/VBoxContainer/ShowDebugInfo" to="." method="_on_show_debug_info_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/fxaaToggle" to="." method="_on_fxaa_toggle_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/resolutionToggle" to="." method="_on_resolution_toggle_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/VBoxContainer/shadowsToggle" to="." method="_on_shadows_toggle_toggled"]
+[connection signal="pressed" from="Panel/VBoxContainer/goBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]

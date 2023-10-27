@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://0b2w4tlcm1uk"]
+
+[ext_resource type="PackedScene" uid="uid://ebydduggcecv" path="res://assets/models/misc/piggy_signal.tscn" id="1_2m4ff"]
+
+[node name="signals" type="Node3D"]
+
+[node name="PiggySignal" parent="." instance=ExtResource("1_2m4ff")]
+transform = Transform3D(-1.30952e-08, 0.299582, 0.0158263, -6.91789e-10, 0.0158263, -0.299582, -0.3, -1.31134e-08, 5.25749e-16, 1.06488, 3.57326, 0.0406655)
+skeleton = NodePath("../..")
+
+[node name="PiggySignal2" parent="." instance=ExtResource("1_2m4ff")]
+transform = Transform3D(0.000307186, -0.299265, -0.0209909, -0.000206003, 0.0209907, -0.299265, 0.3, 0.000320847, -0.000184005, -1.06877, 3.57952, 0.0470051)
+skeleton = NodePath("../..")
+
+[node name="PiggySignal3" parent="." instance=ExtResource("1_2m4ff")]
+transform = Transform3D(0.699935, 0.00732997, -0.00610854, -0.00777803, 0.697886, -0.0537987, 0.00552675, 0.0538616, 0.697903, 0.00495815, 5.31441, 0.0470051)
+skeleton = NodePath("../..")

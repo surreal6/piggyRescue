@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbh0fb4owsg0x"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_q88ew"]
+[ext_resource type="Script" path="res://assets/interface/score_table/score_table.gd" id="2_520du"]
+[ext_resource type="PackedScene" uid="uid://djklbnhjihtaw" path="res://assets/interface/score_player_line/score_player_line.tscn" id="2_mexng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7hvq"]
+bg_color = Color(0.0313726, 0.0941176, 0.0313726, 1)
+
+[node name="ScoreTable" type="Panel" groups=["score"]]
+custom_minimum_size = Vector2(630, 630)
+anchors_preset = -1
+anchor_right = 0.328
+anchor_bottom = 0.583
+offset_right = 0.23999
+offset_bottom = 0.359985
+theme = ExtResource("1_q88ew")
+theme_override_styles/panel = SubResource("StyleBoxFlat_k7hvq")
+script = ExtResource("2_520du")
+
+[node name="VBoxContainerMain" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.937
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 24.69
+theme_override_constants/separation = 25
+
+[node name="VBoxContainerTitles" type="VBoxContainer" parent="VBoxContainerMain"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainerMain/VBoxContainerTitles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "Hall of Fame"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerMain/VBoxContainerTitles"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainerMain/VBoxContainerTitles/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerMain/VBoxContainerTitles/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 60
+
+[node name="Label2" type="Label" parent="VBoxContainerMain/VBoxContainerTitles/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Time"
+
+[node name="Label3" type="Label" parent="VBoxContainerMain/VBoxContainerTitles/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Score"
+
+[node name="VBoxContainerPlayers" type="VBoxContainer" parent="VBoxContainerMain"]
+layout_mode = 2
+
+[node name="PlayerLine" parent="VBoxContainerMain/VBoxContainerPlayers" instance=ExtResource("2_mexng")]
+layout_mode = 2
+
+[node name="PlayerLine2" parent="VBoxContainerMain/VBoxContainerPlayers" instance=ExtResource("2_mexng")]
+layout_mode = 2
+
+[node name="PlayerLine3" parent="VBoxContainerMain/VBoxContainerPlayers" instance=ExtResource("2_mexng")]
+layout_mode = 2
+
+[node name="PlayerLine4" parent="VBoxContainerMain/VBoxContainerPlayers" instance=ExtResource("2_mexng")]
+layout_mode = 2
+
+[node name="PlayerLine5" parent="VBoxContainerMain/VBoxContainerPlayers" instance=ExtResource("2_mexng")]
+layout_mode = 2
+
+[node name="PlayerLine6" parent="VBoxContainerMain/VBoxContainerPlayers" instance=ExtResource("2_mexng")]
+layout_mode = 2

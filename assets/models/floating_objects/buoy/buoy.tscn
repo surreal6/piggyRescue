@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://es1yl34j4kdh"]
+
+[ext_resource type="PackedScene" uid="uid://jbwthwd6ivnc" path="res://assets/models/floating_objects/barrel/barrel_rotated.tscn" id="2_fttq5"]
+[ext_resource type="PackedScene" uid="uid://e1basl5keeiw" path="res://assets/models/floating_objects/barrel/barrel_collision_shape_3d.tscn" id="3_gpbei"]
+
+[node name="buoy" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 720903
+mass = 5.0
+center_of_mass_mode = 1
+freeze_mode = 1
+
+[node name="ProbeContainer" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0183121, 0)
+
+[node name="Probe" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.567128)
+
+[node name="Probe2" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.571339)
+
+[node name="Probe3" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.310758, 0, 0.0103626)
+
+[node name="Probe4" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.317878, 0, 0.0103626)
+
+[node name="barrel_rot" parent="." instance=ExtResource("2_fttq5")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, -0.303859)
+sleeping = true
+freeze_mode = 0
+
+[node name="barrel_rot2" parent="." instance=ExtResource("2_fttq5")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.269045)
+sleeping = true
+freeze_mode = 0
+
+[node name="barrel_rot3" parent="." instance=ExtResource("2_fttq5")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.434104, -0.0171705)
+sleeping = true
+freeze_mode = 0
+
+[node name="CollisionShape3D" parent="." instance=ExtResource("3_gpbei")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.321315, 0.434795, 0)
+
+[node name="CollisionShape3D2" parent="." instance=ExtResource("3_gpbei")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.321315, 0.00308955, 0.268091)
+
+[node name="CollisionShape3D3" parent="." instance=ExtResource("3_gpbei")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.321315, 0.00308955, -0.305545)

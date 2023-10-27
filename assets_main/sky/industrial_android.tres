@@ -1,0 +1,15 @@
+[gd_resource type="Environment" format=3 uid="uid://bvi3ays0aj0dn"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.301961, 0.607843, 1, 1)
+sky_rotation = Vector3(0, 1.46084, 0)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+fog_enabled = true
+fog_light_color = Color(0.105882, 0.294118, 0.329412, 1)
+fog_density = 0.0
+fog_sky_affect = 0.0
+fog_height = 1.0
+fog_height_density = 1.5

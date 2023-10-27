@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://d16ggs3ocupm6"]
+
+[ext_resource type="Script" path="res://assets/interface/select_player/select_player.gd" id="1_ijo68"]
+[ext_resource type="PackedScene" uid="uid://g07mjgl5ynv7" path="res://assets/interface/create_player_button/create_player_button.tscn" id="2_n2tgq"]
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="3_7pipf"]
+[ext_resource type="PackedScene" uid="uid://db6etii2qc1d0" path="res://assets/interface/player_button/player_button.tscn" id="4_w84yb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mxbv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="selectPlayerPanel" type="Panel"]
+custom_minimum_size = Vector2(600, 600)
+anchors_preset = -1
+anchor_right = 0.521
+anchor_bottom = 0.926
+offset_right = -0.192017
+offset_bottom = -0.0480347
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mxbv")
+script = ExtResource("1_ijo68")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="CreatePlayerButton" parent="VBoxContainer" instance=ExtResource("2_n2tgq")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 140)
+layout_mode = 2
+theme = ExtResource("3_7pipf")
+vertical_scroll_mode = 0
+
+[node name="PlayerButtonsContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, -0.01)
+layout_mode = 2
+theme = ExtResource("3_7pipf")
+theme_override_constants/separation = 40
+
+[node name="Button" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button2" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button3" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button4" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button5" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button6" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button7" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[node name="Button8" parent="VBoxContainer/ScrollContainer/PlayerButtonsContainer" instance=ExtResource("4_w84yb")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/CreatePlayerButton" to="." method="_on_create_player_button_pressed"]

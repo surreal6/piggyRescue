@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://uugvekcevrfm"]
+
+[ext_resource type="Shader" path="res://assets_main/water/water_basic.gdshader" id="1_tii4g"]
+[ext_resource type="Texture2D" uid="uid://6geidxrvh30y" path="res://assets/matcap/495CA6_CCD2E6_A5B1D8_1E2852-64px.png" id="2_3xbyq"]
+[ext_resource type="Texture2D" uid="uid://bm5suuw1qig1k" path="res://assets_main/water/water_text_normal.tres" id="3_2526q"]
+[ext_resource type="Texture2D" uid="uid://e4xiw7xam3cq" path="res://assets_main/water/water_text_normal_2.tres" id="4_ecji8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tii4g")
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_2_direction = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/metalness = 0.798
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/edge_scale = 1.0
+shader_parameter/near = 0.5
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_factor = 10.0
+shader_parameter/albedo_mix = 0.5
+shader_parameter/normal_mix = 0.8
+shader_parameter/texture_normal = ExtResource("3_2526q")
+shader_parameter/texture_normal2 = ExtResource("4_ecji8")
+shader_parameter/matcap = ExtResource("2_3xbyq")

@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://8kmgqsexmg4x"]
+
+[ext_resource type="Script" path="res://assets/models/floating_objects/boat/boat.gd" id="1_664b7"]
+[ext_resource type="PackedScene" uid="uid://cjvyr3y6gq3bq" path="res://assets/models/floating_objects/boat/boat_mesh.tscn" id="2_fi5xn"]
+[ext_resource type="Shape3D" uid="uid://cs8s8cel3jrh7" path="res://assets/models/floating_objects/boat/boat_collisionshape.tres" id="2_u2qx2"]
+[ext_resource type="ArrayMesh" uid="uid://bel4nbjdsc8ex" path="res://assets/models/floating_objects/boat/boat_mask.obj" id="3_krm15"]
+[ext_resource type="Material" uid="uid://d31gbm3o62nv4" path="res://assets/shaders/water_mask_shader_material.tres" id="4_20w4d"]
+[ext_resource type="Shape3D" uid="uid://d4dxmwvb6b6eh" path="res://assets/models/floating_objects/boat/pig_detector_collisionshape.tres" id="6_0fi1m"]
+[ext_resource type="PackedScene" uid="uid://cwo2jqekdxb04" path="res://assets_main/pig/pig_mesh_static.tscn" id="6_3qbsx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fiq50"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+angular_velocity_min = 1.0
+angular_velocity_max = 5.0
+color = Color(0, 0.054902, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4180u"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_25naf"]
+lightmap_size_hint = Vector2i(2, 2)
+material = SubResource("StandardMaterial3D_4180u")
+size = Vector2(0.025, 0.05)
+
+[node name="boat" type="StaticBody3D"]
+script = ExtResource("1_664b7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = ExtResource("2_u2qx2")
+
+[node name="boat" parent="." instance=ExtResource("2_fi5xn")]
+
+[node name="ProbeContainer" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041271, 0)
+
+[node name="Probe_sternLeft" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215013, 0, 0.699072)
+
+[node name="Probe_sternRight" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178138, 0, 0.709572)
+
+[node name="Probe_bowLeft" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162034, 0, -0.770775)
+
+[node name="Probe_bowRight" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13757, 0, -0.770775)
+
+[node name="boat_mask" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_krm15")
+surface_material_override/0 = ExtResource("4_20w4d")
+
+[node name="PigDetectorArea3D" type="Area3D" parent="."]
+visible = false
+collision_mask = 4
+
+[node name="PigDetectorAreaCollisionShape" type="CollisionShape3D" parent="PigDetectorArea3D"]
+visible = false
+shape = ExtResource("6_0fi1m")
+
+[node name="pigs" type="Node3D" parent="."]
+
+[node name="pigmesh 01" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.999938, 1.39845e-09, 0.0111174, 0.0072395, 0.758919, 0.651145, -0.00843723, 0.651185, -0.758872, -0.000601009, 0.0037597, 0.228494)
+
+[node name="pigmesh 02" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.959156, 0.0249977, -0.281771, -0.0344561, 0.978347, 0.204085, 0.280772, 0.205457, -0.937526, -0.204293, 0.0422631, 0.187746)
+
+[node name="pigmesh 03" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.94727, -0.0465059, 0.317045, 0.112504, 0.878157, 0.464954, -0.300039, 0.476106, -0.82662, 0.203272, 0.0467158, 0.170891)
+
+[node name="pigmesh 04" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.986046, 0, -0.166476, -0.0971364, 0.812124, 0.575342, 0.135199, 0.583485, -0.800792, -0.183376, 0.00990963, -0.15476)
+
+[node name="pigmesh 05" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.999938, 8.55033e-10, 0.0111174, 0.00648685, 0.812124, 0.583448, -0.00902873, 0.583485, -0.812074, -0.00599438, 0.00109204, -0.155848)
+
+[node name="pigmesh 06" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.914869, -0.169228, 0.366575, 0.0547714, 0.847511, 0.527944, -0.400019, 0.503077, -0.766093, 0.208241, 0.00332952, -0.135373)
+
+[node name="pigmesh 07" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.87087, 0.313197, -0.378805, 0.0310246, 0.804181, 0.593574, 0.490533, 0.505174, -0.710055, -0.150736, 0.106236, -0.630524)
+
+[node name="pigmesh 08" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.807466, -0.425987, 0.408086, -0.107627, 0.786542, 0.608086, -0.580013, 0.447087, -0.680953, 0.178868, 0.120127, -0.623957)
+
+[node name="pigmesh 09" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(0.988984, -0.111134, 0.0977799, 0.0495683, 0.87106, 0.48867, -0.13948, -0.47844, 0.866972, -0.156592, 0.114255, 0.632171)
+
+[node name="pigmesh 10" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(0.990257, -0.0382206, 0.133905, -0.0320753, 0.873134, 0.486424, -0.135508, -0.485979, 0.863401, 0.0167534, 0.116288, 0.628945)
+
+[node name="pigmesh 11" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(0.954569, -0.0712693, 0.289341, -0.0817694, 0.87106, 0.484323, -0.28655, -0.485979, 0.825659, 0.192088, 0.111467, 0.602053)
+
+[node name="pigmesh 12" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.470484, -0.434641, 0.76794, 0.0361554, 0.860051, 0.508926, -0.881667, 0.267207, -0.388926, 0.223331, 0.0993015, -0.381347)
+
+[node name="pigmesh 13" parent="pigs" instance=ExtResource("6_3qbsx")]
+transform = Transform3D(-0.509388, 0.453996, -0.731035, 0.0361554, 0.860051, 0.508926, 0.859777, 0.23281, -0.454514, -0.211074, 0.104467, -0.373607)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+emitting = false
+amount = 80
+one_shot = true
+randomness = 1.0
+visibility_aabb = AABB(-0.65, -1.65, -1.05, 1.3, 3.3, 2.1)
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_fiq50")
+draw_pass_1 = SubResource("QuadMesh_25naf")
+
+[connection signal="body_entered" from="PigDetectorArea3D" to="." method="_on_pig_detector_area_3d_body_entered"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://blwdoeuhiadky"]
+
+[ext_resource type="PackedScene" uid="uid://bxi68mbtnjiev" path="res://assets/models/cloud/cloud.tscn" id="1_028cs"]
+
+[node name="clouds" type="Node3D"]
+
+[node name="scale" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="cloud" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-29.9918, 0, -1.40521, 0, 30, 0, 0.702608, 0, -59.9835, 328.584, 37.9536, 173.338)
+
+[node name="cloud7" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(20.195, 0, 44.3694, 0, 30, 0, -22.1847, 0, 40.39, 328.584, 101.679, -21.2007)
+
+[node name="cloud8" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(27.2199, 1.11759e-06, -25.2251, -0.487248, 29.9776, -2.10312, 12.6031, 1.15896, 54.3992, -59.1665, 61.8358, 209.119)
+
+[node name="cloud2" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-1.90775, 0, -29.9393, 0, 30, 0, 29.9393, 0, -1.90775, 114.907, 73.4582, 199.471)
+
+[node name="cloud3" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-1.90775, 0, -29.9393, 0, 30, 0, 29.9393, 0, -1.90775, -111.729, 114.744, 87.4256)
+
+[node name="cloud4" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(29.1951, 0, -6.90251, 0, 30, 0, 6.90251, 0, 29.1951, -89.3502, 59.3185, -104.138)
+
+[node name="cloud5" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(20.3444, 7.97225e-07, 22.0478, -2.25254e-06, 30, 9.93745e-07, -22.0478, -2.32936e-06, 20.3444, 9.33372, 61.6753, 39.3928)
+
+[node name="cloud6" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-23.7664, -9.85875e-07, -18.3073, -5.08452e-07, 30, -9.55475e-07, 18.3073, -4.46661e-07, -23.7664, 212.682, 61.6753, 49.4405)
+
+[node name="cloud9" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(13.3481, 0, 98.0486, 0, 50.809, 0, -49.0244, 0, 26.6961, -487.804, 12.4039, 28.4269)
+
+[node name="cloud10" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-27.5773, 0, -85.3474, 0, 50.809, 0, 42.6738, 0, -55.1546, -215.786, -13.8682, 332.787)
+
+[node name="cloud11" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(9.23646, -1.60156, -99.8734, -0.825219, 50.7711, -3.5619, 49.9556, 1.13481, 18.4071, 94.3183, -40.1606, 375.047)
+
+[node name="cloud12" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-73.0196, 0, -17.1213, 0, 75, 0, 17.1213, 0, -73.0196, -69.336, 2.98723, -410.55)
+
+[node name="cloud13" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-9.63737, 0, 49.8866, 0, 50.809, 0, -49.8866, 0, -9.63737, 413.294, 78.4278, -176.435)
+
+[node name="cloud14" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-50.7963, 0, -1.13321, 0, 50.809, 0, 1.13321, 0, -50.7963, -195.296, 291.374, -180.188)
+
+[node name="cloud15" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(-24.2002, -3.37207e-07, -44.6754, -3.81498e-06, 50.809, 1.68303e-06, 44.6754, 4.15609e-06, -24.2002, 46.9731, 185.396, -373.181)
+
+[node name="cloud16" parent="scale" instance=ExtResource("1_028cs")]
+transform = Transform3D(30.0555, -13.3515, 38.7293, 8.1856, 49.0234, 10.5479, -40.14, 3.118e-07, 31.1502, 250.535, -11.4511, 232.625)

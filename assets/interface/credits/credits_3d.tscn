@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsu5e2mxfy70v"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_qfrbr"]
+[ext_resource type="PackedScene" uid="uid://c5uj4t8enfkd" path="res://assets/interface/credits/credits.tscn" id="2_84wdo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g0hox"]
+resource_local_to_scene = true
+size = Vector2(16, 9)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1sc3g"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mosgb"]
+render_priority = 100
+transparency = 1
+cull_mode = 2
+no_depth_test = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_1sc3g")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bswj1"]
+resource_local_to_scene = true
+size = Vector3(16, 9, 0.02)
+
+[node name="Credits3D" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_qfrbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+screen_size = Vector2(16, 9)
+viewport_size = Vector2(1920, 1080)
+render_priority = 100
+no_depth_test = true
+scene = ExtResource("2_84wdo")
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(1920, 1080)
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_g0hox")
+surface_material_override/0 = SubResource("StandardMaterial3D_mosgb")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(16, 9)
+viewport_size = Vector2(1920, 1080)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_bswj1")
+
+[editable path="Viewport2Din3D"]

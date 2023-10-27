@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cglsqkxdyxd"]
+
+[ext_resource type="Texture2D" uid="uid://dcjfbpqpdmucp" path="res://assets/loading_screen/logo-transp.png" id="1_t2hua"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_t2hua")

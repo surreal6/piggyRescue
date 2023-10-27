@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c50sbjfh76c42"]
+
+[ext_resource type="Texture2D" uid="uid://cu4j1s8qr1rjq" path="res://addons/godot-xr-tools/images/teleport_target.png" id="1_ebwmy"]
+
+[resource]
+render_priority = 100
+transparency = 1
+cull_mode = 2
+no_depth_test = true
+shading_mode = 0
+diffuse_mode = 1
+albedo_color = Color(0.176471, 0.313726, 0.862745, 1)
+albedo_texture = ExtResource("1_ebwmy")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://diuvmvxcchn0u"
+path="res://.godot/imported/wooden_sign.obj-a03d88eb7087b1a9205b1c036c91ec7c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wooden_sign.obj-a03d88eb7087b1a9205b1c036c91ec7c.mesh"]
+
+source_file="res://assets/models/misc/wooden_sign.obj"
+dest_files=["res://.godot/imported/wooden_sign.obj-a03d88eb7087b1a9205b1c036c91ec7c.mesh", "res://.godot/imported/wooden_sign.obj-a03d88eb7087b1a9205b1c036c91ec7c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b6g36kfwmk5q5"]
+
+[ext_resource type="Shader" path="res://assets_main/water/matcap.gdshader" id="1_tufu6"]
+[ext_resource type="Texture2D" uid="uid://ckukxoh0m31xv" path="res://assets/matcap/7C584C_27140D_B3765C_3D2318-256px.png" id="2_lkcu0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tufu6")
+shader_parameter/metalness = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/matcap = ExtResource("2_lkcu0")

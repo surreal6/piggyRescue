@@ -1,0 +1,201 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8rg2i1s2cwun"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_fyah4"]
+[ext_resource type="Script" path="res://assets/interface/create_player/create_player.gd" id="2_r2fuk"]
+[ext_resource type="Script" path="res://assets/interface/create_player/NameTextEdit.gd" id="3_x2eu8"]
+[ext_resource type="Texture2D" uid="uid://dxy13etxxa1lk" path="res://assets/images/hands/african_p.png" id="4_7qw2d"]
+[ext_resource type="Texture2D" uid="uid://07xg1qc8k5pu" path="res://assets/images/rescue_buoy_images/90px/float_yellow_90px.png" id="4_jf7rq"]
+[ext_resource type="Texture2D" uid="uid://dyynu8cvp6iao" path="res://assets/images/rescue_buoy_images/90px/float_green_90px.png" id="5_dwmom"]
+[ext_resource type="Texture2D" uid="uid://dv85f0nep2n8u" path="res://assets/images/hands/african_realistic_p.png" id="5_f0xuw"]
+[ext_resource type="Texture2D" uid="uid://65mhgtqklm4e" path="res://assets/images/rescue_buoy_images/90px/float_cyan_90px.png" id="6_eocsk"]
+[ext_resource type="Texture2D" uid="uid://dmx57qdjv0vln" path="res://assets/images/hands/caucasian_p.png" id="6_l4fum"]
+[ext_resource type="Texture2D" uid="uid://ufc631ejrglu" path="res://assets/images/hands/caucasian_realistic_p.png" id="7_366dg"]
+[ext_resource type="Texture2D" uid="uid://blopdcscs3i3l" path="res://assets/images/rescue_buoy_images/90px/float_blue_90px.png" id="7_wofmd"]
+[ext_resource type="Texture2D" uid="uid://dxr8m8ayj0dje" path="res://assets/images/hands/gloves_p.png" id="8_bveas"]
+[ext_resource type="Texture2D" uid="uid://7hr031nqci4y" path="res://assets/images/rescue_buoy_images/90px/float_pink_90px.png" id="8_i7pks"]
+[ext_resource type="Texture2D" uid="uid://bebc7o6nvhpit" path="res://assets/images/rescue_buoy_images/90px/float_red_90px.png" id="9_534tt"]
+[ext_resource type="Texture2D" uid="uid://cquxh4nj3jgod" path="res://assets/images/rescue_buoy_images/90px/float_orange_90px.png" id="10_vyri4"]
+[ext_resource type="PackedScene" uid="uid://elpsmi86nuwr" path="res://assets/interface/player_button/player_button_no_action.tscn" id="11_gctvo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mxbv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vptw8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sfykp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24tr2"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.694118, 0.698039, 0.709804, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi5g6"]
+bg_color = Color(0.6, 0.317647, 0.407843, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="createPlayerPanel" type="Panel"]
+custom_minimum_size = Vector2(630, 600)
+anchors_preset = -1
+anchor_right = 0.328
+anchor_bottom = 0.556
+offset_right = 0.23999
+offset_bottom = -0.480042
+theme = ExtResource("1_fyah4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mxbv")
+script = ExtResource("2_r2fuk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InsertNameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Insert Name"
+
+[node name="NameTextEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_fyah4")
+placeholder_text = "Your name here"
+alignment = 1
+clear_button_enabled = true
+script = ExtResource("3_x2eu8")
+
+[node name="nameAlertContainer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="nameAlertLabel" type="Label" parent="VBoxContainer/nameAlertContainer"]
+visible = false
+layout_mode = 2
+offset_left = 133.0
+offset_top = 4.0
+offset_right = 521.0
+offset_bottom = 39.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "This name already exist. Choose another"
+
+[node name="SelectColorLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Select your colors"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="handAfrican" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_7qw2d")
+
+[node name="handAfricanRealistic" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_f0xuw")
+
+[node name="handCaucasian" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_l4fum")
+
+[node name="handCaucasianRealistic" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_366dg")
+
+[node name="gloves" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_bveas")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vptw8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="floaterYellow" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_jf7rq")
+
+[node name="floaterGreen" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_dwmom")
+
+[node name="floaterCyan" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_eocsk")
+
+[node name="floaterBlue" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_wofmd")
+
+[node name="floaterPink" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_i7pks")
+
+[node name="floaterRed" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_534tt")
+
+[node name="floaterOrange" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_vyri4")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_sfykp")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="SampleButton" parent="VBoxContainer/VBoxContainer" instance=ExtResource("11_gctvo")]
+layout_mode = 2
+
+[node name="SavePlayerButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_24tr2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fi5g6")
+disabled = true
+text = "Save"
+
+[connection signal="text_changed" from="VBoxContainer/NameTextEdit" to="." method="_on_name_text_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/handAfrican" to="." method="_on_hand_african_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/handAfricanRealistic" to="." method="_on_hand_african_realistic_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/handCaucasian" to="." method="_on_hand_caucasian_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/handCaucasianRealistic" to="." method="_on_hand_caucasian_realistic_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/gloves" to="." method="_on_gloves_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterYellow" to="." method="_on_floater_yellow_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterGreen" to="." method="_on_floater_green_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterCyan" to="." method="_on_floater_cyan_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterBlue" to="." method="_on_floater_blue_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterPink" to="." method="_on_floater_pink_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterRed" to="." method="_on_floater_red_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/floaterOrange" to="." method="_on_floater_orange_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/SampleButton" to="." method="_on_sample_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/SavePlayerButton" to="." method="_on_save_player_button_pressed"]

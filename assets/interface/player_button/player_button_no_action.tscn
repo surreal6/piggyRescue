@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://elpsmi86nuwr"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_5e0v8"]
+[ext_resource type="Texture2D" uid="uid://cquxh4nj3jgod" path="res://assets/images/rescue_buoy_images/90px/float_orange_90px.png" id="2_d2o3f"]
+
+[node name="Button_no_action" type="Button"]
+anchors_preset = -1
+anchor_right = 0.174
+anchor_bottom = 0.154
+offset_right = -0.448013
+offset_bottom = 0.207993
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5e0v8")
+text = "Name"
+icon = ExtResource("2_d2o3f")
+alignment = 2

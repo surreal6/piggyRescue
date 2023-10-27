@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://m4wkssib5ugo"]
+
+[ext_resource type="Shader" path="res://assets/shaders/underwater.gdshader" id="1_7q6a3"]
+[ext_resource type="Texture2D" uid="uid://ba30aic8oahmv" path="res://assets_main/water/water_wave.tres" id="2_gmbge"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7q6a3")
+shader_parameter/water_level = 1.0
+shader_parameter/edge_scale = 1.0
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/tint = Color(0, 0.321569, 0.431373, 1)
+shader_parameter/wave = ExtResource("2_gmbge")

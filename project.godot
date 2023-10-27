@@ -1,0 +1,167 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Piggy Rescue"
+config/description="A game about saving a bunch of little pigs swimming on the shore of a beach"
+run/main_scene="res://demo_staging.tscn"
+config/features=PackedStringArray("4.1", "Mobile")
+config/icon="res://icons/pig-rescue-logo-192px.png"
+config/windows_native_icon="res://icons/icon.ico"
+
+[autoload]
+
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+Gamedata="*res://scripts/globals/gamedata.gd"
+Globals="*res://scripts/globals/Globals.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg")
+
+[layer_names]
+
+3d_physics/layer_1="Static World"
+3d_physics/layer_2="Dynamic World"
+3d_physics/layer_3="Pickable Objects"
+3d_physics/layer_4="Wall Walking"
+3d_physics/layer_5="Grappling Target"
+3d_physics/layer_17="Held Objects"
+3d_physics/layer_18="Player Hands"
+3d_physics/layer_19="Grab Handles"
+3d_physics/layer_20="Player Body"
+3d_physics/layer_21="Pointable Objects"
+3d_physics/layer_22="Hand Pose Areas"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/size.mobile=1024
+anti_aliasing/quality/screen_space_aa=1
+lights_and_shadows/positional_shadow/atlas_size.mobile=1024
+environment/defaults/default_environment="res://assets_main/sky/industrial_android.tres"
+
+[shader_globals]
+
+sgt_player_position={
+"type": "vec3",
+"value": Vector3(1e+06, 1e+06, 1e+06)
+}
+sgt_player_mov={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+sgt_normal_displacement={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/normal.png"
+}
+sgt_motion_texture={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/motion.png"
+}
+sgt_wind_direction={
+"type": "vec3",
+"value": Vector3(1, 0, 0)
+}
+sgt_wind_movement={
+"type": "vec3",
+"value": Vector2(0, 0)
+}
+sgt_wind_strength={
+"type": "float",
+"value": 0.15
+}
+sgt_wind_turbulence={
+"type": "float",
+"value": 1.0
+}
+sgt_wind_pattern={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/wind_pattern.png"
+}
+w_text_normal={
+"type": "sampler2D",
+"value": "res://assets_main/water/water_text_normal.tres"
+}
+w_text_normal_2={
+"type": "sampler2D",
+"value": "res://assets_main/water/water_text_normal_2.tres"
+}
+w_height_scale={
+"type": "float",
+"value": 0.15
+}
+w_wave_speed={
+"type": "float",
+"value": 0.2
+}
+w_wave={
+"type": "sampler2D",
+"value": "res://assets_main/water/water_wave.tres"
+}
+w_wave_bump={
+"type": "sampler2D",
+"value": "res://assets_main/water/water_wave_bump.tres"
+}
+w_wave_time={
+"type": "float",
+"value": 0.0
+}
+w_color_shallow={
+"type": "color",
+"value": Color(0, 0.552941, 0.65098, 1)
+}
+w_color_deep={
+"type": "color",
+"value": Color(0.105882, 0.294118, 0.329412, 1)
+}
+w_albedo2={
+"type": "color",
+"value": Color(0, 0.47451, 0.764706, 1)
+}
+w_albedo={
+"type": "color",
+"value": Color(0, 0.321569, 0.431373, 1)
+}
+w_normal_mix={
+"type": "float",
+"value": 0.8
+}
+w_wave_direction={
+"type": "vec2",
+"value": Vector2(2, 0)
+}
+w_wave_2_direction={
+"type": "vec2",
+"value": Vector2(0, 1)
+}
+w_noise_scale={
+"type": "float",
+"value": 10.0
+}
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true

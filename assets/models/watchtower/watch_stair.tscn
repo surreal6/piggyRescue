@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cppxwmt5nq0xq"]
+
+[ext_resource type="PackedScene" uid="uid://cuhoshgblbjo3" path="res://assets/models/watchtower/watch_stair.gltf" id="1_hwp4d"]
+
+[node name="watch_stair" instance=ExtResource("1_hwp4d")]

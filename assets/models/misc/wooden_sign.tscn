@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkdhcnmpm0fri"]
+
+[ext_resource type="ArrayMesh" uid="uid://diuvmvxcchn0u" path="res://assets/models/misc/wooden_sign.obj" id="1_xn5qx"]
+[ext_resource type="Texture2D" uid="uid://vw8gy3p5d32m" path="res://assets/models/floating_objects/barrel/textures/barrel 2_0new_barrel_BaseColor_png.png" id="2_kbkfe"]
+[ext_resource type="Texture2D" uid="uid://cr2sumcv1thox" path="res://assets/models/floating_objects/barrel/textures/barrel 2_0new_barrel_Metallic_png-barrel 2_0new_barrel_Roughness_png.png" id="3_spomx"]
+[ext_resource type="Texture2D" uid="uid://b1u5ni0n5gs1f" path="res://assets/models/floating_objects/barrel/textures/barrel 2_0new_barrel_NormaOpenGLl_png.png" id="4_is7mh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mohcn"]
+resource_name = "barrel.001"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_kbkfe")
+metallic = 1.0
+metallic_texture = ExtResource("3_spomx")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_spomx")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_is7mh")
+
+[node name="woodenSign" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xn5qx")
+surface_material_override/0 = SubResource("StandardMaterial3D_mohcn")

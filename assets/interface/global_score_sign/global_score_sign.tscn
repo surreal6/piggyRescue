@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://ic7esdaimefe"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_kyeh6"]
+[ext_resource type="Script" path="res://assets/interface/global_score_sign/global_score_sign.gd" id="2_tgcq5"]
+[ext_resource type="StyleBox" uid="uid://cbjiqf8n6epe" path="res://assets/interface/main_menu_sign/sign_button_style_box_flat.tres" id="3_e1k3s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyqg4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="mainMenuSign" type="Panel"]
+layout_direction = 1
+anchors_preset = -1
+anchor_left = 0.053
+anchor_top = 0.038
+anchor_right = 0.194
+anchor_bottom = 0.094
+offset_left = 83.24
+offset_top = 22.96
+offset_right = 82.52
+offset_bottom = 22.48
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_kyeh6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xyqg4")
+script = ExtResource("2_tgcq5")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("3_e1k3s")
+theme_override_styles/hover = ExtResource("3_e1k3s")
+theme_override_styles/pressed = ExtResource("3_e1k3s")
+theme_override_styles/disabled = ExtResource("3_e1k3s")
+theme_override_styles/focus = ExtResource("3_e1k3s")
+text = "Global Score"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

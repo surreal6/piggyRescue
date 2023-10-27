@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5get360xuqxg"]
+
+[ext_resource type="PackedScene" uid="uid://d0a8r1tw1oqit" path="res://assets/models/beach/beach_terrain_2.tscn" id="2_2ngt7"]
+[ext_resource type="PackedScene" uid="uid://d0pnv6ys22kbt" path="res://assets/models/watchtower/watch_tower2.tscn" id="2_s4d4c"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q3trl"]
+height = 30.0
+radius = 35.0
+
+[node name="beach_scene" type="Node3D"]
+
+[node name="beach_terrain_2" parent="." instance=ExtResource("2_2ngt7")]
+
+[node name="PlayAlertArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7208, 0, 0)
+collision_layer = 4096
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayAlertArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.163, 0)
+shape = SubResource("CylinderShape3D_q3trl")
+
+[node name="buoys" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.721, 1, 0)
+
+[node name="watch_tower2" parent="." instance=ExtResource("2_s4d4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59928, 2.43502, -8.7861)

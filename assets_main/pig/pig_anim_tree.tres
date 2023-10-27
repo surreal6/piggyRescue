@@ -1,0 +1,24 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=5 format=3 uid="uid://b8q2yfe8nar4j"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tle4j"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oq6qm"]
+animation = &"reset"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e3row"]
+animation = &"hanged"
+
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_y8707"]
+
+[resource]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_e3row")
+nodes/Animation/position = Vector2(430, 40)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_tle4j")
+"nodes/Animation 2/position" = Vector2(430, 210)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_oq6qm")
+"nodes/Animation 3/position" = Vector2(230, 140)
+nodes/Blend3/node = SubResource("AnimationNodeBlend3_y8707")
+nodes/Blend3/position = Vector2(610, 80)
+nodes/output/position = Vector2(910, 120)
+node_connections = [&"output", 0, &"Blend3", &"Blend3", 0, &"Animation", &"Blend3", 1, &"Animation 3", &"Blend3", 2, &"Animation 2"]

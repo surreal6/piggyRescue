@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1ukk6huv2lyx"]
+
+[ext_resource type="Script" path="res://assets/interface/options_menu_audio/options_menu_audio_3D.gd" id="1_0ser0"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="2_gfdoo"]
+[ext_resource type="PackedScene" uid="uid://cjgeqrnhe53d7" path="res://assets/interface/options_menu_audio/options_menu_audio.tscn" id="3_vmuvy"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="4_onsgl"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_25ogq"]
+resource_local_to_scene = true
+size = Vector2(3, 3)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c742g"]
+viewport_path = NodePath("Viewport2Din3D/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_682ep"]
+render_priority = 100
+transparency = 1
+cull_mode = 2
+no_depth_test = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_c742g")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sslsn"]
+resource_local_to_scene = true
+size = Vector3(3, 3, 0.02)
+
+[node name="options_menu_audio_3D" type="Node3D"]
+script = ExtResource("1_0ser0")
+
+[node name="Viewport2Din3D" type="Node3D" parent="."]
+script = ExtResource("2_gfdoo")
+screen_size = Vector2(3, 3)
+viewport_size = Vector2(600, 600)
+render_priority = 100
+no_depth_test = true
+unshaded = true
+scene = ExtResource("3_vmuvy")
+update_mode = 2
+
+[node name="Viewport" type="SubViewport" parent="Viewport2Din3D"]
+disable_3d = true
+transparent_bg = true
+screen_space_aa = 1
+gui_embed_subwindows = true
+size = Vector2i(600, 600)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="Viewport2Din3D"]
+mesh = SubResource("QuadMesh_25ogq")
+surface_material_override/0 = SubResource("StandardMaterial3D_682ep")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Viewport2Din3D"]
+collision_layer = 1048577
+collision_mask = 0
+script = ExtResource("4_onsgl")
+screen_size = Vector2(3, 3)
+viewport_size = Vector2(600, 600)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_sslsn")
+
+[connection signal="pointer_entered" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D" method="_on_pointer_entered" flags=18]
+[connection signal="pointer_exited" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D" method="_on_pointer_exited" flags=18]
+[connection signal="pointer_moved" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D/StaticBody3D" method="_on_pointer_moved" flags=18]
+[connection signal="pointer_pressed" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D/StaticBody3D" method="_on_pointer_pressed" flags=18]
+[connection signal="pointer_released" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D/StaticBody3D" method="_on_pointer_released" flags=18]

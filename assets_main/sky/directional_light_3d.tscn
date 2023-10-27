@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ch72x3u46niwo"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D"]
+transform = Transform3D(0.681998, -0.126998, 0.720243, 0, 0.984808, 0.173648, -0.731354, -0.118428, 0.671638, 0, 8.5247, 0)
+light_energy = 0.5
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.03
+shadow_normal_bias = 10.0
+directional_shadow_mode = 0

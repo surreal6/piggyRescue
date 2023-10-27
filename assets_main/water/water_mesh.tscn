@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciu3bdnqmrt8r"]
+
+[ext_resource type="Material" uid="uid://uugvekcevrfm" path="res://assets_main/water/water_basic_material.tres" id="1_ovdar"]
+[ext_resource type="ArrayMesh" uid="uid://dmg4kdlo2hi6b" path="res://assets_main/water/water_mesh_3.tres" id="2_f8oac"]
+[ext_resource type="Script" path="res://assets_main/water/Water.gd" id="3_rct6k"]
+[ext_resource type="Material" uid="uid://vn0eflra85ff" path="res://assets_main/water/water_limit_material.tres" id="4_k4m2w"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hauah"]
+material = ExtResource("4_k4m2w")
+flip_faces = true
+top_radius = 173.0
+bottom_radius = 173.0
+height = 20.0
+radial_segments = 192
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[node name="water_mesh" type="MeshInstance3D" groups=["water"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.58537, 63.3893, -31.9925)
+material_override = ExtResource("1_ovdar")
+cast_shadow = 0
+lod_bias = 128.0
+mesh = ExtResource("2_f8oac")
+script = ExtResource("3_rct6k")
+basic_material = true
+height_scale = 1.5
+
+[node name="water_border" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+mesh = SubResource("CylinderMesh_hauah")

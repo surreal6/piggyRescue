@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqumugyvkct4r"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/loading_screen.gd" id="1_6vfh7"]
+[ext_resource type="Texture2D" uid="uid://b6io77sgt11fn" path="res://logo_600x525.png" id="2_avugi"]
+[ext_resource type="FontFile" uid="uid://dct7llffqhgid" path="res://fonts/CherryBombOne-Regular.ttf" id="3_04xm3"]
+[ext_resource type="PackedScene" uid="uid://cymteydkxagpp" path="res://addons/godot-xr-tools/misc/hold_button.tscn" id="6_ivfl5"]
+
+[sub_resource type="Curve" id="21"]
+max_value = 3.14
+_data = [Vector2(0.00207039, 0), 0.0, 1.00884, 0, 0, Vector2(1, 3.14), 0.313348, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(15, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1o2lp"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_avugi")
+
+[node name="LoadingScreen" type="Node3D"]
+script = ExtResource("1_6vfh7")
+follow_speed = SubResource("21")
+splash_screen = ExtResource("2_avugi")
+
+[node name="SplashScreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 8.63934, -50)
+mesh = SubResource("2")
+surface_material_override/0 = SubResource("StandardMaterial3D_1o2lp")
+
+[node name="PressToContinue" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -8.72065)
+visible = false
+text = "Press trigger to continue"
+font = ExtResource("3_04xm3")
+font_size = 128
+outline_size = 24
+
+[node name="HoldButton" parent="PressToContinue" instance=ExtResource("6_ivfl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08, 0)
+hold_time = 0.5
+color = Color(0, 0.717647, 1, 1)
+
+[connection signal="pressed" from="PressToContinue/HoldButton" to="." method="_on_HoldButton_pressed"]

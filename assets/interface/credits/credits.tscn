@@ -1,0 +1,424 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5uj4t8enfkd"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_olqvm"]
+[ext_resource type="Script" path="res://assets/interface/credits/credits.gd" id="2_mtqlp"]
+[ext_resource type="FontFile" uid="uid://bitog3rvmdept" path="res://fonts/Roboto-Medium.ttf" id="2_u833e"]
+[ext_resource type="Texture2D" uid="uid://c1y8x2ebch67n" path="res://assets/interface/main_menu/logo_300x262.png" id="3_ln8ll"]
+[ext_resource type="Texture2D" uid="uid://3ct6iibbrgqy" path="res://assets/images/icons/The_GIMP_icon_-_gnome.svg" id="3_y61ii"]
+[ext_resource type="Texture2D" uid="uid://bwqtc7o6w062d" path="res://assets/images/icons/Inkscape-flat-logo-2color.svg" id="4_l4o1l"]
+[ext_resource type="Texture2D" uid="uid://ejqfa6plpvsi" path="res://assets/images/icons/penpot isotype_B.svg" id="5_spl0t"]
+[ext_resource type="Texture2D" uid="uid://blkb8m6xpfo1w" path="res://assets/images/icons/blender_logo.svg" id="6_o1p3n"]
+[ext_resource type="Texture2D" uid="uid://cjnqrew1c2mr8" path="res://assets/images/icons/icon_xr_alpha_border.svg" id="7_xln4k"]
+
+[sub_resource type="Animation" id="Animation_4xpmx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 5229)]
+}
+
+[sub_resource type="Animation" id="Animation_2jo4h"]
+resource_name = "scroll"
+length = 80.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 80),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1100), Vector2(0, -5400)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(80),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpp2s"]
+_data = {
+"RESET": SubResource("Animation_4xpmx"),
+"scroll": SubResource("Animation_2jo4h")
+}
+
+[node name="credits" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.000366211
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_olqvm")
+script = ExtResource("2_mtqlp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_top = 1100.0
+offset_right = 1920.0
+offset_bottom = 6396.0
+theme_override_constants/separation = 35
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Control2"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("3_ln8ll")
+expand_mode = 5
+
+[node name="title1" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Art & Code"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credit1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "Carlos Padial  - asturnazari.com"
+horizontal_alignment = 1
+
+[node name="title2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credit2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "Benjamin Burnes - abstractionmusic.com"
+horizontal_alignment = 1
+
+[node name="title3" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "3D Models"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credit3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "pig model CC-by @rakutin
+sketchfab.com
+
+barrel model CC-by @Jezrien
+blendswap.com
+
+watch tower model CC-by @rayferric
+sketchfab.com
+
+boat model CC-by @pau.raurellgomis
+sketchfab.com
+"
+horizontal_alignment = 1
+
+[node name="title4" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Sound Fx"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credit4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "CC0 by @colorsCrimsonTears, @plasterbrain,
+@FunWithSound, @basarunder, and @Foleyhaven
+freesound.org"
+horizontal_alignment = 1
+
+[node name="title5" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Sky HDRI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credit5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "CC0   by  Sergej Majboroda and Jarod Guest
+polyhaven.com"
+horizontal_alignment = 1
+
+[node name="title6" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Leaderscore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credit6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "silentwolf.com"
+horizontal_alignment = 1
+
+[node name="title7" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Software"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 35
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.25
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("3_y61ii")
+expand_mode = 5
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("4_l4o1l")
+expand_mode = 5
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterContainer3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.25
+texture = ExtResource("5_spl0t")
+expand_mode = 5
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterContainer4"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("6_o1p3n")
+expand_mode = 3
+
+[node name="credit7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "   Gimp   Inkscape  Penpot   Blender
+"
+horizontal_alignment = 1
+
+[node name="credit11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "
+and of course:
+"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Control"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("7_xln4k")
+expand_mode = 5
+
+[node name="credit10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "Godot
+& 
+Godot XR Tools Add On
+ "
+horizontal_alignment = 1
+
+[node name="credit9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "helped with some plugins:
+
+Simple Grass Textured plugin by IcterusGames
+
+Silent Wolf plugin by Brass Harpooner
+
+Water shader based on @stayathomedev tutorials
+
+"
+horizontal_alignment = 1
+
+[node name="credit8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "Special thanks to Bastiaan Olij, Teddybear082, 
+DigitalN8m4r3, Malcolm Nixon, Julian Tood... 
+and all the people from the Godot XR
+and Godot Dojo discord communities.
+
+Also thanks to @RafaLagoon
+and his Twitchers!"
+horizontal_alignment = 1
+
+[node name="credit12" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_u833e")
+theme_override_font_sizes/font_size = 0
+text = "
+
+
+
+CC-by Carlos Padial
+Madrid, June and July 2023"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hpp2s")
+}

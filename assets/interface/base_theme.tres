@@ -1,0 +1,56 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c0nlnhb1qadnq"]
+
+[ext_resource type="FontFile" uid="uid://dct7llffqhgid" path="res://fonts/CherryBombOne-Regular.ttf" id="1_87r4p"]
+[ext_resource type="StyleBox" uid="uid://di4ggmvi7s3vt" path="res://assets/interface/button_normal_style_box_flat.tres" id="2_jqvxg"]
+[ext_resource type="StyleBox" uid="uid://dhaaxb4slghu2" path="res://assets/interface/button_hover_style_box_flat.tres" id="3_j0co0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktjqk"]
+content_margin_bottom = 10.0
+bg_color = Color(0.694118, 0.698039, 0.709804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7kcs"]
+content_margin_bottom = 10.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 10
+border_width_top = 20
+border_width_right = 10
+border_width_bottom = 20
+border_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k6lf"]
+bg_color = Color(0.147, 0.14775, 0.15, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qponj"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[resource]
+default_font = ExtResource("1_87r4p")
+default_font_size = 36
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_87r4p")
+Button/styles/focus = ExtResource("2_jqvxg")
+Button/styles/hover = ExtResource("3_j0co0")
+Button/styles/normal = ExtResource("2_jqvxg")
+Button/styles/pressed = ExtResource("2_jqvxg")
+CheckButton/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckButton/styles/focus = null
+CheckButton/styles/hover = ExtResource("3_j0co0")
+CheckButton/styles/hover_pressed = ExtResource("3_j0co0")
+CheckButton/styles/normal = ExtResource("2_jqvxg")
+CheckButton/styles/pressed = ExtResource("2_jqvxg")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_ktjqk")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_i7kcs")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_1k6lf")
+Panel/styles/panel = SubResource("StyleBoxFlat_qponj")

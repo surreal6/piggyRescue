@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhnhb6gcia323"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_fqtdd"]
+[ext_resource type="StyleBox" uid="uid://cbjiqf8n6epe" path="res://assets/interface/main_menu_sign/sign_button_style_box_flat.tres" id="2_nyx7o"]
+[ext_resource type="Script" path="res://assets/interface/main_menu_sign/main_menu_sign.gd" id="2_ptfva"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyqg4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="mainMenuSign" type="Panel"]
+layout_direction = 1
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.111
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 150.48
+offset_bottom = 50.12
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_fqtdd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xyqg4")
+script = ExtResource("2_ptfva")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("2_nyx7o")
+theme_override_styles/hover = ExtResource("2_nyx7o")
+theme_override_styles/pressed = ExtResource("2_nyx7o")
+theme_override_styles/disabled = ExtResource("2_nyx7o")
+theme_override_styles/focus = ExtResource("2_nyx7o")
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

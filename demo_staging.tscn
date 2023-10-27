@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkr1jkk3jerux"]
+
+[ext_resource type="PackedScene" uid="uid://bnqnnnet4dw12" path="res://addons/godot-xr-tools/staging/staging.tscn" id="1_438ja"]
+[ext_resource type="Script" path="res://demo_staging.gd" id="2_ebrgi"]
+[ext_resource type="Texture2D" uid="uid://dugbwwrbcvk2b" path="res://assets_main/sky/industrial_sunset_puresky_2k.hdr" id="3_7f1bf"]
+[ext_resource type="PackedScene" uid="uid://dvttbx3dv0uux" path="res://assets_main/sky/sky.tscn" id="4_josoo"]
+[ext_resource type="AudioStream" uid="uid://bei2rh4gr3fb4" path="res://audio/music/Ludum Dare 30 - Track 8.wav" id="5_yjpsg"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i3h4y"]
+panorama = ExtResource("3_7f1bf")
+
+[sub_resource type="Sky" id="Sky_sh5wu"]
+sky_material = SubResource("PanoramaSkyMaterial_i3h4y")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_vuhde"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_sh5wu")
+sky_rotation = Vector3(0, 1.46084, 0)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+tonemap_mode = 2
+fog_light_color = Color(0.105882, 0.294118, 0.329412, 1)
+fog_density = 0.0
+fog_sky_affect = 0.0
+fog_height = 1.0
+fog_height_density = 1.5
+
+[sub_resource type="Curve" id="Curve_b5q6x"]
+max_value = 5.0
+_data = [Vector2(0.00207039, 0), 0.0, 1.00884, 0, 0, Vector2(0.497931, 5), 0.313348, 0.0, 0, 0]
+point_count = 2
+
+[node name="DemoStaging" instance=ExtResource("1_438ja")]
+script = ExtResource("2_ebrgi")
+main_scene = "res://main.tscn"
+
+[node name="WorldEnvironment" parent="." index="1"]
+environment = SubResource("Environment_vuhde")
+
+[node name="LoadingScreen" parent="." index="3"]
+follow_speed = SubResource("Curve_b5q6x")
+enable_press_to_continue = true
+
+[node name="sky" parent="." index="6" instance=ExtResource("4_josoo")]
+
+[node name="AudioStreamMusic" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource("5_yjpsg")
+autoplay = true
+bus = &"music"
+
+[connection signal="scene_exiting" from="." to="." method="_on_Staging_scene_exiting"]
+[connection signal="scene_loaded" from="." to="." method="_on_Staging_scene_loaded"]
+[connection signal="xr_ended" from="." to="." method="_on_Staging_xr_ended"]
+[connection signal="xr_started" from="." to="." method="_on_Staging_xr_started"]

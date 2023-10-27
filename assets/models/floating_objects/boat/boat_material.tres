@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://qfxugs6wqe73"]
+
+[ext_resource type="Texture2D" uid="uid://b4d1fq3g8v5n0" path="res://assets/models/floating_objects/boat/textures/Image_0.png" id="1_l143t"]
+[ext_resource type="Texture2D" uid="uid://dgb288p5rn7se" path="res://assets/models/floating_objects/boat/textures/Image_1.png" id="2_lv7ti"]
+[ext_resource type="Material" uid="uid://dydm1m1777nsa" path="res://assets/shaders/underwater_shader_material.tres" id="3_f1xog"]
+[ext_resource type="Texture2D" uid="uid://daw6qci34mrfm" path="res://assets/models/floating_objects/boat/textures/Image_2.png" id="3_m1thd"]
+
+[resource]
+resource_name = "Object005"
+next_pass = ExtResource("3_f1xog")
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_l143t")
+metallic_texture = ExtResource("2_lv7ti")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_lv7ti")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_m1thd")

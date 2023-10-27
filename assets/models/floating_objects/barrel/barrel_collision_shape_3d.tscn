@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://e1basl5keeiw"]
+
+[ext_resource type="Shape3D" uid="uid://k1wcw0d31ehi" path="res://assets/models/floating_objects/barrel/barrel_convex_polygon_shape_3d.tres" id="1_owol2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325606, 0)
+shape = ExtResource("1_owol2")

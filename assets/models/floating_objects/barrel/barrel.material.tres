@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b3txmwbyugbo0"]
+
+[ext_resource type="Texture2D" uid="uid://vw8gy3p5d32m" path="res://assets/models/floating_objects/barrel/textures/barrel 2_0new_barrel_BaseColor_png.png" id="1_cdcvt"]
+[ext_resource type="Texture2D" uid="uid://cr2sumcv1thox" path="res://assets/models/floating_objects/barrel/textures/barrel 2_0new_barrel_Metallic_png-barrel 2_0new_barrel_Roughness_png.png" id="2_wt6dn"]
+[ext_resource type="Material" uid="uid://dydm1m1777nsa" path="res://assets/shaders/underwater_shader_material.tres" id="3_f2l10"]
+[ext_resource type="Texture2D" uid="uid://b1u5ni0n5gs1f" path="res://assets/models/floating_objects/barrel/textures/barrel 2_0new_barrel_NormaOpenGLl_png.png" id="3_k77a7"]
+
+[resource]
+resource_name = "barrel.001"
+next_pass = ExtResource("3_f2l10")
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_cdcvt")
+metallic = 1.0
+metallic_texture = ExtResource("2_wt6dn")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_wt6dn")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_k77a7")

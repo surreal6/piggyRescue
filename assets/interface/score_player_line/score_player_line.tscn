@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://djklbnhjihtaw"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_xsbkh"]
+[ext_resource type="Script" path="res://assets/interface/score_player_line/score_player_line.gd" id="2_dgn3g"]
+[ext_resource type="Script" path="res://scripts/resources/player_resource.gd" id="3_lbiyn"]
+[ext_resource type="Texture2D" uid="uid://cquxh4nj3jgod" path="res://assets/images/rescue_buoy_images/90px/float_orange_90px.png" id="4_00qf1"]
+
+[sub_resource type="Resource" id="Resource_pvn1x"]
+script = ExtResource("3_lbiyn")
+name = "TestPlayer"
+color = "orange"
+hands = ""
+time = 0
+score = 0
+max_level = 0
+
+[node name="PlayerLine" type="Control"]
+custom_minimum_size = Vector2(600, 60)
+layout_mode = 3
+anchor_right = 0.312
+anchor_bottom = 0.056
+offset_right = 0.959961
+offset_bottom = -0.480003
+theme = ExtResource("1_xsbkh")
+script = ExtResource("2_dgn3g")
+player = SubResource("Resource_pvn1x")
+
+[node name="PlayerLineContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NameContainer" type="HBoxContainer" parent="PlayerLineContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="PlayerLineContainer/NameContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_00qf1")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="PlayerLineContainer/NameContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Almudena"
+
+[node name="DataContainer" type="HBoxContainer" parent="PlayerLineContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="TimeLabel" type="Label" parent="PlayerLineContainer/DataContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="PlayerLineContainer/DataContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "0"
+horizontal_alignment = 2

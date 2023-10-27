@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvttbx3dv0uux"]
+
+[ext_resource type="Environment" uid="uid://bvi3ays0aj0dn" path="res://assets_main/sky/industrial_android.tres" id="1_k0vq1"]
+[ext_resource type="PackedScene" uid="uid://ch72x3u46niwo" path="res://assets_main/sky/directional_light_3d.tscn" id="2_oll8w"]
+
+[node name="sky" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_k0vq1")
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("2_oll8w")]
+visible = false

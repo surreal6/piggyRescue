@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdsjwwvo4e46x"]
+
+[ext_resource type="Script" path="res://assets/interface/main_menu_sign/main_menu_sign_3D.gd" id="1_b878f"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1_xjbf5"]
+[ext_resource type="PackedScene" uid="uid://bhnhb6gcia323" path="res://assets/interface/main_menu_sign/main_menu_sign.tscn" id="2_cptcg"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="3_r4s76"]
+[ext_resource type="PackedScene" uid="uid://dkdhcnmpm0fri" path="res://assets/models/misc/wooden_sign.tscn" id="4_6ej4q"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_25ogq"]
+resource_local_to_scene = true
+size = Vector2(1.5, 0.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_puc5l"]
+viewport_path = NodePath("Viewport2Din3D/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_846nn"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_puc5l")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sslsn"]
+resource_local_to_scene = true
+size = Vector3(1.5, 0.6, 0.02)
+
+[node name="mainMenu3D" type="Node3D"]
+script = ExtResource("1_b878f")
+
+[node name="Viewport2Din3D" type="Node3D" parent="."]
+script = ExtResource("1_xjbf5")
+screen_size = Vector2(1.5, 0.6)
+viewport_size = Vector2(300, 120)
+unshaded = true
+scene = ExtResource("2_cptcg")
+update_mode = 2
+
+[node name="Viewport" type="SubViewport" parent="Viewport2Din3D"]
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(300, 120)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="Viewport2Din3D"]
+mesh = SubResource("QuadMesh_25ogq")
+surface_material_override/0 = SubResource("StandardMaterial3D_846nn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Viewport2Din3D"]
+collision_layer = 1048577
+collision_mask = 0
+script = ExtResource("3_r4s76")
+screen_size = Vector2(1.5, 0.6)
+viewport_size = Vector2(300, 120)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_sslsn")
+
+[node name="woodenSign" parent="." instance=ExtResource("4_6ej4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0537889)
+
+[connection signal="pointer_entered" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D" method="_on_pointer_entered" flags=18]
+[connection signal="pointer_exited" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D" method="_on_pointer_exited" flags=18]
+[connection signal="pointer_moved" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D/StaticBody3D" method="_on_pointer_moved" flags=18]
+[connection signal="pointer_pressed" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D/StaticBody3D" method="_on_pointer_pressed" flags=18]
+[connection signal="pointer_released" from="Viewport2Din3D/StaticBody3D" to="Viewport2Din3D/StaticBody3D" method="_on_pointer_released" flags=18]

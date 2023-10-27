@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://02ph82sj1qc"]
+
+[ext_resource type="Script" path="res://assets/models/xr_controllers/l_xr_controller.gd" id="1_kj3uf"]
+[ext_resource type="PackedScene" uid="uid://jcxws62ct7w4" path="res://assets/models/xr_controllers/L_XR_controller.glb" id="2_w5tkg"]
+[ext_resource type="FontFile" uid="uid://dct7llffqhgid" path="res://fonts/CherryBombOne-Regular.ttf" id="3_svg35"]
+
+[node name="L_XR_controller" type="Node3D"]
+script = ExtResource("1_kj3uf")
+
+[node name="L_XR_controller" parent="." instance=ExtResource("2_w5tkg")]
+
+[node name="trigger" type="Label3D" parent="."]
+transform = Transform3D(0.129799, 0, 0, 0, 0.129799, 0, 0, 0, 0.129799, -0.0109667, -0.000971094, -0.0785515)
+pixel_size = 0.004
+billboard = 1
+text = "Trigger
+"
+font = ExtResource("3_svg35")
+horizontal_alignment = 0
+
+[node name="grab" type="Label3D" parent="."]
+transform = Transform3D(0.129799, 0, 0, 0, 0.129799, 0, 0, 0, 0.129799, 0.0238516, -0.000971094, 0.0792765)
+pixel_size = 0.004
+billboard = 1
+text = "Grab
+
+"
+font = ExtResource("3_svg35")
+horizontal_alignment = 0
+
+[node name="AX" type="Label3D" parent="."]
+transform = Transform3D(0.129799, -0.000277319, 0.000268911, 0.00027738, 0.129799, -2.88624e-05, -0.000268848, 2.94391e-05, 0.129799, 0.0634945, -0.000971094, 0.0221195)
+pixel_size = 0.004
+billboard = 1
+text = "A/X button
+"
+font = ExtResource("3_svg35")
+horizontal_alignment = 0
+
+[node name="BY" type="Label3D" parent="."]
+transform = Transform3D(0.129799, -0.000277319, 0.000268911, 0.00027738, 0.129799, -2.88624e-05, -0.000268848, 2.94391e-05, 0.129799, 0.0635076, -0.000971094, -0.029991)
+pixel_size = 0.004
+billboard = 1
+text = "B/Y button
+"
+font = ExtResource("3_svg35")
+horizontal_alignment = 0
+
+[node name="X axis" type="Label3D" parent="."]
+transform = Transform3D(0.129799, -0.000277319, 0.000268911, 0.00027738, 0.129799, -2.88624e-05, -0.000268848, 2.94391e-05, 0.129799, -0.0703323, -0.000971094, -0.0237098)
+pixel_size = 0.004
+billboard = 1
+text = "X Axis
+
+"
+font = ExtResource("3_svg35")
+horizontal_alignment = 2
+
+[node name="Y axis" type="Label3D" parent="."]
+transform = Transform3D(0.129799, -0.000277319, 0.000268911, 0.00027738, 0.129799, -2.88624e-05, -0.000268848, 2.94391e-05, 0.129799, -0.0740272, -0.000971094, 0.0320827)
+pixel_size = 0.004
+billboard = 1
+text = "Y Axis
+
+"
+font = ExtResource("3_svg35")
+horizontal_alignment = 2
+
+[node name="lines" type="Node3D" parent="."]
+
+[editable path="L_XR_controller"]

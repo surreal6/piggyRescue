@@ -1,0 +1,584 @@
+[gd_scene load_steps=54 format=3 uid="uid://bhi0ak0xola1g"]
+
+[ext_resource type="Script" path="res://scripts/Logic.gd" id="1_l3b7b"]
+[ext_resource type="Script" path="res://scripts/resources/level_resource.gd" id="2_5bi7n"]
+[ext_resource type="PackedScene" uid="uid://ciu3bdnqmrt8r" path="res://assets_main/water/water_mesh.tscn" id="4_byx6f"]
+[ext_resource type="PackedScene" uid="uid://8kmgqsexmg4x" path="res://assets/models/floating_objects/boat/boat.tscn" id="5_elxcp"]
+[ext_resource type="PackedScene" uid="uid://dvttbx3dv0uux" path="res://assets_main/sky/sky.tscn" id="6_gy020"]
+[ext_resource type="PackedScene" uid="uid://c5get360xuqxg" path="res://assets/models/beach_scene.tscn" id="7_26q2j"]
+[ext_resource type="PackedScene" uid="uid://blwdoeuhiadky" path="res://assets/models/clouds.tscn" id="7_f34is"]
+[ext_resource type="PackedScene" uid="uid://dfgk0yugicv5h" path="res://assets/interface/score_table/score_table_3D.tscn" id="8_x2sh2"]
+[ext_resource type="PackedScene" uid="uid://cdsjwwvo4e46x" path="res://assets/interface/main_menu_sign/main_menu_sign_3D.tscn" id="9_tlpbn"]
+[ext_resource type="Script" path="res://scripts/XR_mod/XRCamera_underwater.gd" id="10_dtp7w"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="11_g2pv7"]
+[ext_resource type="PackedScene" uid="uid://75248aa0mvk6" path="res://assets/countdown/countdown.tscn" id="12_s2atj"]
+[ext_resource type="FontFile" uid="uid://dct7llffqhgid" path="res://fonts/CherryBombOne-Regular.ttf" id="13_da5fu"]
+[ext_resource type="Script" path="res://scripts/ui_labels/LevelLabel.gd" id="14_5ph8w"]
+[ext_resource type="Script" path="res://scripts/misc/fadeSphere.gd" id="15_dxbyu"]
+[ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="15_tryxb"]
+[ext_resource type="Material" uid="uid://ba02jnd2dswyn" path="res://addons/godot-xr-tools/hands/materials/cleaning_glove.material" id="16_4urio"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="17_1b2ir"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="18_18hwy"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="19_mgy2m"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="20_nsccw"]
+[ext_resource type="PackedScene" uid="uid://c33nxviff2rst" path="res://assets/models/xr_controllers/l_xr_controller.tscn" id="21_rxwyl"]
+[ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="22_cqqeo"]
+[ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="23_et2i2"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="23_m4vmi"]
+[ext_resource type="PackedScene" uid="uid://cq08habkjfdbf" path="res://assets/models/xr_controllers/r_xr_controller.tscn" id="24_v5m68"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="25_dsv8f"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="26_2sa58"]
+[ext_resource type="Script" path="res://scripts/XR_mod/interfaces_follow_camera.gd" id="29_jv08c"]
+[ext_resource type="AudioStream" uid="uid://dpnygdg1apvlo" path="res://audio/fx/547522__colorscrimsontears__underwater.wav" id="30_4tusc"]
+[ext_resource type="Script" path="res://scripts/ui_labels/state_label.gd" id="30_xuhs4"]
+[ext_resource type="AudioStream" uid="uid://hart6l0kovij" path="res://audio/fx/397355__plasterbrain__tada-fanfare-a.wav" id="31_rooca"]
+[ext_resource type="AudioStream" uid="uid://dvpkblnt54jpw" path="res://audio/fx/456966__funwithsound__success-fanfare-trumpets.wav" id="32_d2w4p"]
+
+[sub_resource type="Resource" id="Resource_dys8y"]
+script = ExtResource("2_5bi7n")
+levelNumber = 1
+pigs = 2
+floaters = 0
+waveHeight = 0.15
+
+[sub_resource type="Resource" id="Resource_4r31m"]
+script = ExtResource("2_5bi7n")
+levelNumber = 2
+pigs = 3
+floaters = 1
+waveHeight = 0.42
+
+[sub_resource type="Resource" id="Resource_y8uvl"]
+script = ExtResource("2_5bi7n")
+levelNumber = 3
+pigs = 5
+floaters = 2
+waveHeight = 0.69
+
+[sub_resource type="Resource" id="Resource_7a04i"]
+script = ExtResource("2_5bi7n")
+levelNumber = 4
+pigs = 7
+floaters = 3
+waveHeight = 0.96
+
+[sub_resource type="Resource" id="Resource_u0ayh"]
+script = ExtResource("2_5bi7n")
+levelNumber = 5
+pigs = 11
+floaters = 5
+waveHeight = 1.23
+
+[sub_resource type="Resource" id="Resource_m1dnr"]
+script = ExtResource("2_5bi7n")
+levelNumber = 6
+pigs = 13
+floaters = 7
+waveHeight = 1.3
+
+[sub_resource type="Curve3D" id="Curve3D_pi783"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.63239, 0, -0.209502, 0, 0, 0, 0, 0, 0, -5.4079, 0, -1.716, 0, 0, 0, 0, 0, 0, -3.30957, 0, -3.79639, 0, 0, 0, 0, 0, 0, -0.0634336, 0, -5.21322, 0, 0, 0, 0, 0, 0, 2.96749, 0, -4.33443, 0, 0, 0, 0, 0, 0, 5.40657, 0, -1.08829, 0, 0, 0, 0, 0, 0, 2.75228, 0, 0.72309, 0, 0, 0, 0, 0, 0, 1.20991, 0, -0.873077, 0, 0, 0, 0, 0, 0, 0, 0, -1.65, 0, 0, 0, 0, 0, 0, -1.56993, 0, -0.819274, 0, 0, 0, 0, 0, 0, -2.7536, 0, 0.454073, 0, 0, 0, 0, 0, 0, -2.85234, 0, -0.903059, 0, 0, 0, 0, 0, 0, -1.15275, 0, -2.68263, 0, 0, 0, 0, 0, 0, 0.486856, 0, -2.67263, 0, 0, 0, 0, 0, 0, 1.61658, 0, -1.87283, 0, 0, 0, 0, 0, 0, 2.52637, 0, -0.833076, 0, 0, 0, 0, 0, 0, 3.95602, 0, -1.31296, 0, 0, 0, 0, 0, 0, 3.6261, 0, -2.3827, 0, 0, 0, 0, 0, 0, 2.53636, 0, -3.6424, 0, 0, 0, 0, 0, 0, 1.27667, 0, -4.27225, 0, 0, 0, 0, 0, 0, -0.322949, 0, -4.35223, 0, 0, 0, 0, 0, 0, -1.7726, 0, -3.87235, 0, 0, 0, 0, 0, 0, -2.71238, 0, -3.09253, 0, 0, 0, 0, 0, 0, -3.72213, 0, -2.10277, 0, 0, 0, 0, 0, 0, -4.23201, 0, -1.47292, 0, 0, 0, 0, 0, 0, -3.60216, 0, -0.963045, 0, 0, 0, 0, 0, 0, -2.57241, 0, -2.16276, 0, 0, 0, 0, 0, 0, -1.63264, 0, -3.13252, 0, 0, 0, 0, 0, 0, -0.682863, 0, -3.61241, 0, 0, 0, 0, 0, 0, 0.466861, 0, -3.60241, 0, 0, 0, 0, 0, 0, 1.5566, 0, -3.04254, 0, 0, 0, 0, 0, 0, 2.29642, 0, -2.4027, 0, 0, 0, 0, 0, 0, 2.83629, 0, -1.59289),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 33
+
+[sub_resource type="PrismMesh" id="PrismMesh_2pdqi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_anosf"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+angular_velocity_min = 1.0
+angular_velocity_max = 5.0
+color = Color(0, 0.054902, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4180u"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_id4yv"]
+lightmap_size_hint = Vector2i(2, 2)
+material = SubResource("StandardMaterial3D_4180u")
+size = Vector2(0.025, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3gfy"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ct5bb"]
+material = SubResource("StandardMaterial3D_c3gfy")
+flip_faces = true
+
+[sub_resource type="Animation" id="Animation_7li36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2w4sg"]
+resource_name = "fade_and_destroy"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"destroy"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hi21s"]
+_data = {
+"RESET": SubResource("Animation_7li36"),
+"fade_and_destroy": SubResource("Animation_2w4sg")
+}
+
+[sub_resource type="Resource" id="Resource_aq5ml"]
+script = ExtResource("26_2sa58")
+flags = 0
+move_drag = 5.0
+move_traction = 30.0
+stop_on_slope = false
+move_max_slope = 60.0
+jump_max_slope = 60.0
+jump_velocity = 2.0
+bounciness = 0.0
+bounce_threshold = 1.0
+
+[sub_resource type="Curve" id="Curve_uj776"]
+_data = [Vector2(0.00453858, 0), 0.0, 8.39107, 0, 0, Vector2(0.373676, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uh48j"]
+height = 30.0
+radius = 50.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w68h0"]
+height = 30.0
+radius = 35.0
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_l3b7b")
+levels = Array[ExtResource("2_5bi7n")]([SubResource("Resource_dys8y"), SubResource("Resource_4r31m"), SubResource("Resource_y8uvl"), SubResource("Resource_7a04i"), SubResource("Resource_u0ayh"), SubResource("Resource_m1dnr")])
+
+[node name="floatersContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="pigsContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PigSpawnPath" type="Path3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -25.432, 3.91645, 1.5603)
+curve = SubResource("Curve3D_pi783")
+
+[node name="PigSpawnLocation" type="PathFollow3D" parent="PigSpawnPath"]
+transform = Transform3D(0.646942, 0, 0.762465, 0, 1, 0, -0.762465, 0, 0.646942, -3.63239, 0, -0.209502)
+
+[node name="PigTimer" type="Timer" parent="PigSpawnPath"]
+
+[node name="scenery" type="Node3D" parent="."]
+
+[node name="water_mesh" parent="scenery" instance=ExtResource("4_byx6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="boat" parent="scenery" instance=ExtResource("5_elxcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4059, 1.916, -3.75389)
+
+[node name="sky" parent="scenery" instance=ExtResource("6_gy020")]
+
+[node name="DirectionalLight3D" parent="scenery/sky" index="1"]
+visible = true
+
+[node name="clouds" parent="scenery/sky" instance=ExtResource("7_f34is")]
+
+[node name="StartPositionMarker3D" type="Marker3D" parent="scenery"]
+transform = Transform3D(-0.181155, 0, 0.983454, 0, 1, 0, -0.983454, 0, -0.181155, -2.50617, 2.90988, -6.45305)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="scenery/StartPositionMarker3D"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.832264, 0)
+visible = false
+mesh = SubResource("PrismMesh_2pdqi")
+
+[node name="GamePositionMarker3D" type="Marker3D" parent="scenery"]
+transform = Transform3D(-0.990168, 0, 0.139882, 0, 1, 0, -0.139882, 0, -0.990168, -9.61185, 5.15127, -8.67321)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="scenery/GamePositionMarker3D"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.506823, 0)
+visible = false
+mesh = SubResource("PrismMesh_2pdqi")
+skeleton = NodePath("../../StartPositionMarker3D")
+
+[node name="HallOfFamePositionMarker3D" type="Marker3D" parent="scenery"]
+transform = Transform3D(-0.999995, 0.00319395, -8.74223e-08, 0.00319395, 0.999995, 2.79224e-10, 8.74228e-08, 0, -1, -10.2507, 3.33019, -13.4192)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="scenery/HallOfFamePositionMarker3D"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.430035, 0)
+visible = false
+mesh = SubResource("PrismMesh_2pdqi")
+skeleton = NodePath("../../StartPositionMarker3D")
+
+[node name="beach_scene" parent="scenery" instance=ExtResource("7_26q2j")]
+
+[node name="scoreTable3D" parent="scenery" instance=ExtResource("8_x2sh2")]
+transform = Transform3D(-0.899865, 0.00375064, 0.0151137, 0.00613764, 0.888219, 0.145011, -0.0143115, 0.145093, -0.888112, -10.2543, 4.45243, -10.0421)
+
+[node name="mainMenu3D_sign" parent="scenery" instance=ExtResource("9_tlpbn")]
+transform = Transform3D(-0.82889, -0.548152, -0.111675, -0.557769, 0.825109, 0.089939, 0.0428438, 0.136838, -0.989666, -8.31515, 4.4812, -9.95266)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(-0.838671, 0, -0.544639, 0, 1, 0, 0.544639, 0, -0.838671, -5.19366, 5.21316, -8.67321)
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+script = ExtResource("10_dtp7w")
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("11_g2pv7")]
+
+[node name="CameraLabels" type="Node3D" parent="XROrigin3D/XRCamera3D"]
+
+[node name="CountDownLabel" parent="XROrigin3D/XRCamera3D/CameraLabels" instance=ExtResource("12_s2atj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+
+[node name="scoreLabel" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "Score: 1234"
+font = ExtResource("13_da5fu")
+font_size = 72
+outline_size = 8
+
+[node name="playData" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/scoreLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(0.992157, 1, 0.498039, 1)
+text = "level: 0   time: 0   pigs/sec: 0"
+font = ExtResource("13_da5fu")
+font_size = 45
+outline_size = 8
+
+[node name="newRecord" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/scoreLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(0.992157, 1, 0, 1)
+text = "New personal record"
+font = ExtResource("13_da5fu")
+font_size = 45
+outline_size = 8
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D/CameraLabels/scoreLabel/newRecord"]
+emitting = false
+amount = 80
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+visibility_aabb = AABB(-0.65, -1.65, -1.05, 1.3, 3.3, 2.1)
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_anosf")
+draw_pass_1 = SubResource("QuadMesh_id4yv")
+
+[node name="presstrigger" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/scoreLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(1, 1, 0.701961, 1)
+text = "Press trigger to continue"
+font = ExtResource("13_da5fu")
+font_size = 45
+outline_size = 8
+
+[node name="LevelLabel" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, -4)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "Level 1"
+font = ExtResource("13_da5fu")
+font_size = 72
+outline_size = 8
+script = ExtResource("14_5ph8w")
+
+[node name="savethepigs" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/LevelLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(1, 0.67451, 0.866667, 1)
+text = "save the pigs!"
+font = ExtResource("13_da5fu")
+font_size = 65
+outline_size = 8
+
+[node name="putthemintotheboat" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/LevelLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(1, 0.67451, 0.470588, 1)
+text = "put them into the boat!
+"
+font = ExtResource("13_da5fu")
+font_size = 55
+outline_size = 8
+
+[node name="presstrigger" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/LevelLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.632, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(1, 1, 0.701961, 1)
+text = "Press trigger to continue"
+font = ExtResource("13_da5fu")
+font_size = 45
+outline_size = 8
+
+[node name="gameoverLabel" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "Ready for next level?"
+font = ExtResource("13_da5fu")
+font_size = 72
+outline_size = 8
+
+[node name="presstrigger" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/gameoverLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(1, 1, 0.701961, 1)
+text = "Press trigger to continue"
+font = ExtResource("13_da5fu")
+font_size = 45
+outline_size = 8
+
+[node name="limitsAlertLabel" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206, -4)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "You are moving away 
+from the game area"
+font = ExtResource("13_da5fu")
+font_size = 72
+outline_size = 8
+
+[node name="limits alert 2" type="Label3D" parent="XROrigin3D/XRCamera3D/CameraLabels/limitsAlertLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.921, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+modulate = Color(1, 1, 0.701961, 1)
+text = "If you continue,
+the game will end"
+font = ExtResource("13_da5fu")
+font_size = 45
+outline_size = 8
+
+[node name="fadeSphere" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D"]
+mesh = SubResource("SphereMesh_ct5bb")
+script = ExtResource("15_dxbyu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="XROrigin3D/XRCamera3D/fadeSphere"]
+libraries = {
+"": SubResource("AnimationLibrary_hi21s")
+}
+
+[node name="LeftHandController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftPhysicsHand" parent="XROrigin3D/LeftHandController" instance=ExtResource("15_tryxb")]
+hand_material_override = ExtResource("16_4urio")
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHandController" instance=ExtResource("17_1b2ir")]
+strafe = true
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHandController" instance=ExtResource("18_18hwy")]
+grab_distance = 0.1
+ranged_enable = false
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHandController" instance=ExtResource("19_mgy2m")]
+show_target = true
+
+[node name="FunctionTeleport" parent="XROrigin3D/LeftHandController" instance=ExtResource("20_nsccw")]
+visible = false
+strength = 1.0
+teleport_button_action = "by_button"
+
+[node name="L_controls" parent="XROrigin3D/LeftHandController" instance=ExtResource("21_rxwyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0501676)
+visible = false
+
+[node name="MovementJump" parent="XROrigin3D/LeftHandController" instance=ExtResource("23_et2i2")]
+
+[node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="RightPhysicsHand" parent="XROrigin3D/RightHandController" instance=ExtResource("22_cqqeo")]
+hand_material_override = ExtResource("16_4urio")
+
+[node name="MovementDirect" parent="XROrigin3D/RightHandController" instance=ExtResource("17_1b2ir")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHandController" instance=ExtResource("18_18hwy")]
+grab_distance = 0.1
+ranged_enable = false
+
+[node name="MovementTurn" parent="XROrigin3D/RightHandController" instance=ExtResource("23_m4vmi")]
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHandController" instance=ExtResource("19_mgy2m")]
+show_target = true
+
+[node name="FunctionTeleport" parent="XROrigin3D/RightHandController" instance=ExtResource("20_nsccw")]
+visible = false
+strength = 1.0
+teleport_button_action = "by_button"
+
+[node name="R_controls" parent="XROrigin3D/RightHandController" instance=ExtResource("24_v5m68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+visible = false
+
+[node name="MovementJump" parent="XROrigin3D/RightHandController" instance=ExtResource("23_et2i2")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("25_dsv8f")]
+floor_stop_on_slope = false
+floor_max_angle = 1.0472
+physics = SubResource("Resource_aq5ml")
+
+[node name="interfaces" type="Node3D" parent="XROrigin3D"]
+script = ExtResource("29_jv08c")
+follow_speed = SubResource("Curve_uj776")
+
+[node name="dynamic_interface" type="Node3D" parent="XROrigin3D/interfaces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="debug_interface" type="Node3D" parent="XROrigin3D/interfaces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+visible = false
+
+[node name="state" type="Label3D" parent="XROrigin3D/interfaces/debug_interface"]
+transform = Transform3D(0.999999, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 0.999999, 0, 2, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "state"
+script = ExtResource("30_xuhs4")
+
+[node name="fps" type="Label3D" parent="XROrigin3D/interfaces/debug_interface/state"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "fps"
+
+[node name="resolution" type="Label3D" parent="XROrigin3D/interfaces/debug_interface/state"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35673, 0)
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "resolut"
+
+[node name="Timer" type="Timer" parent="XROrigin3D/interfaces/debug_interface/state"]
+
+[node name="AudioStreamUnderwater" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_4tusc")
+autoplay = true
+bus = &"waterSound"
+
+[node name="AudioStreamFxPigCaptured" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_rooca")
+volume_db = 3.0
+bus = &"noWaterFx"
+
+[node name="AudioStreamFxPigWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_d2w4p")
+volume_db = 6.0
+bus = &"noWaterFx"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="AudioStreamFxPigWin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+emitting = false
+amount = 80
+one_shot = true
+randomness = 1.0
+visibility_aabb = AABB(-0.65, -1.65, -1.05, 1.3, 3.3, 2.1)
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_anosf")
+draw_pass_1 = SubResource("QuadMesh_id4yv")
+
+[node name="PlayLimitsArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7208, 0, 0)
+collision_layer = 4096
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayLimitsArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.163, 0)
+shape = SubResource("CylinderShape3D_uh48j")
+
+[node name="PlayAlertArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7208, 0, 0)
+collision_layer = 4096
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayAlertArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.163, 0)
+shape = SubResource("CylinderShape3D_w68h0")
+
+[connection signal="timeout" from="PigSpawnPath/PigTimer" to="." method="_on_pig_timer_timeout"]
+[connection signal="timeout" from="XROrigin3D/interfaces/debug_interface/state/Timer" to="XROrigin3D/interfaces/debug_interface/state" method="_on_timer_timeout"]
+[connection signal="body_exited" from="PlayLimitsArea3D" to="." method="_on_play_limits_area_3d_body_exited"]
+[connection signal="body_entered" from="PlayAlertArea3D" to="." method="_on_play_alert_area_3d_body_entered"]
+[connection signal="body_exited" from="PlayAlertArea3D" to="." method="_on_play_alert_area_3d_body_exited"]
+
+[editable path="scenery/sky"]

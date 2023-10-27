@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjgeqrnhe53d7"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_ghqkw"]
+[ext_resource type="Script" path="res://assets/interface/options_menu_audio/options_menu_audio.gd" id="2_du1dd"]
+[ext_resource type="StyleBox" uid="uid://csr3di7qg1vl2" path="res://assets/interface/close_button_theme.tres" id="3_u13v2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2b2dp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tk1u"]
+bg_color = Color(0.427832, 0.430249, 0.4375, 0.501961)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="optionsMenuAudio" type="Panel"]
+custom_minimum_size = Vector2(600, 600)
+anchors_preset = -1
+anchor_right = 0.328
+anchor_bottom = 0.556
+offset_right = 0.959961
+offset_bottom = -0.47998
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_ghqkw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2b2dp")
+script = ExtResource("2_du1dd")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 430)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tk1u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -172.5
+offset_right = 155.0
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="inGameMusicCheckButton" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "In-game Music"
+
+[node name="EffectsSliderContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/EffectsSliderContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Fx"
+vertical_alignment = 1
+
+[node name="FxVolHSlider" type="HSlider" parent="Panel/VBoxContainer/EffectsSliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MusicSliderContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MusicSliderContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Music"
+vertical_alignment = 1
+
+[node name="MusicVolHSlider" type="HSlider" parent="Panel/VBoxContainer/MusicSliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MasterSliderContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MasterSliderContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Master"
+vertical_alignment = 1
+
+[node name="MasterVolHSlider" type="HSlider" parent="Panel/VBoxContainer/MasterSliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+tick_count = 10
+ticks_on_borders = true
+
+[node name="goBack" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Go Back"
+
+[node name="CloseButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 369.64
+offset_top = -30.0
+offset_right = 429.64
+offset_bottom = 30.0
+theme_override_styles/normal = ExtResource("3_u13v2")
+theme_override_styles/hover = ExtResource("3_u13v2")
+theme_override_styles/pressed = ExtResource("3_u13v2")
+theme_override_styles/disabled = ExtResource("3_u13v2")
+theme_override_styles/focus = ExtResource("3_u13v2")
+text = "X"
+
+[connection signal="toggled" from="Panel/VBoxContainer/inGameMusicCheckButton" to="." method="_on_in_game_music_check_button_toggled"]
+[connection signal="value_changed" from="Panel/VBoxContainer/EffectsSliderContainer/FxVolHSlider" to="." method="_on_fx_vol_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/MusicSliderContainer/MusicVolHSlider" to="." method="_on_music_vol_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/MasterSliderContainer/MasterVolHSlider" to="." method="_on_master_vol_h_slider_value_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/goBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://3rjju8s6paa7"]
+
+[ext_resource type="Theme" uid="uid://c0nlnhb1qadnq" path="res://assets/interface/base_theme.tres" id="1_v6q5x"]
+[ext_resource type="Script" path="res://assets/interface/main_menu/main_menu.gd" id="2_q66w6"]
+[ext_resource type="Texture2D" uid="uid://c1y8x2ebch67n" path="res://assets/interface/main_menu/logo_300x262.png" id="3_n7ddr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyq51"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Main Menu" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -350.0
+offset_right = 300.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_v6q5x")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kyq51")
+script = ExtResource("2_q66w6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -242.0
+offset_right = 200.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_n7ddr")
+
+[node name="individualGame" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "New Game"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="Hall of fame" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Hall of Fame"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Credits"
+
+[node name="exitGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[connection signal="pressed" from="VBoxContainer/individualGame" to="." method="_on_individual_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Hall of fame" to="." method="_on_hall_of_fame_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/exitGameButton" to="." method="_on_exit_game_button_pressed"]

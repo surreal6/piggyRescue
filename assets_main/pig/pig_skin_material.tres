@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dqqkiv3bs20kw"]
+
+[ext_resource type="Material" uid="uid://dydm1m1777nsa" path="res://assets/shaders/underwater_shader_material.tres" id="1_2l5xb"]
+[ext_resource type="Shader" path="res://assets_main/pig/pig_skin.gdshader" id="1_4y832"]
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_2l5xb")
+shader = ExtResource("1_4y832")
+shader_parameter/albedo = Color(1, 0.850742, 0.967962, 1)
+shader_parameter/albedo2 = Color(0.780392, 0.34902, 0.870588, 1)
+shader_parameter/fresnel_value = 0.7

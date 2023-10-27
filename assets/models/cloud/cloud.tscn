@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxi68mbtnjiev"]
+
+[ext_resource type="PackedScene" uid="uid://r2f3v5rwbhmw" path="res://assets/models/cloud/cloud.glb" id="1_nt5at"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48gut"]
+albedo_color = Color(0.827451, 1, 1, 1)
+
+[node name="cloud" instance=ExtResource("1_nt5at")]
+
+[node name="nube_2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_48gut")

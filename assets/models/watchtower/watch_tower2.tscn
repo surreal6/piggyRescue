@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0pnv6ys22kbt"]
+
+[ext_resource type="PackedScene" uid="uid://0b2w4tlcm1uk" path="res://assets/models/watchtower/watchtower_signals.tscn" id="2_rcynh"]
+[ext_resource type="PackedScene" uid="uid://cyfo5vicbaoej" path="res://assets/models/watchtower/watch_tower_b.tscn" id="3_270oo"]
+[ext_resource type="PackedScene" uid="uid://cppxwmt5nq0xq" path="res://assets/models/watchtower/watch_stair.tscn" id="3_uammw"]
+[ext_resource type="PackedScene" uid="uid://erruetvo2mjk" path="res://assets/models/watchtower/watch_stair_railing.tscn" id="4_t8vbg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2t6nn"]
+size = Vector3(1, 0.1, 3.5)
+
+[node name="watch_tower_2" type="Node3D"]
+
+[node name="watch_stair" parent="." instance=ExtResource("3_uammw")]
+
+[node name="watch_stair_railing" parent="." instance=ExtResource("4_t8vbg")]
+
+[node name="watch_tower_b" parent="." instance=ExtResource("3_270oo")]
+
+[node name="signals" parent="." instance=ExtResource("2_rcynh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.616169, 0)
+
+[node name="PiggySignal3" parent="signals" index="2"]
+transform = Transform3D(0.699978, -0.000745951, -0.00548561, 0.000267309, 0.697361, -0.0607208, 0.00552964, 0.0607168, 0.69734, 0.00495815, 5.89243, 0.0470051)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.592112, -0.805856, 0, 0.805856, 0.592112, 0.424351, 1.31026, 2.20685)
+shape = SubResource("BoxShape3D_2t6nn")
+
+[editable path="signals"]
